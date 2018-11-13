@@ -4,7 +4,6 @@ use Rollbar\Payload\Level;
 use Rollbar\Rollbar;
 
 define('DS', DIRECTORY_SEPARATOR);
-
 require_once dirname(__DIR__) . DS . 'vendor' . DS . 'autoload.php';
 
 $token = getenv('ROLLBAR_ACCESS_TOKEN');
@@ -23,22 +22,20 @@ Rollbar::init([
     'environment' => $env,
 ]);
 
-Rollbar::log(Level::ERROR, 'Test error message');
+Rollbar::debug('でばっぐ 1');
+Rollbar::log(Level::DEBUG, 'でばっぐ 2');
+Rollbar::info('いんふぉ');
+Rollbar::notice('のーてぃす');
+Rollbar::warning('わーにんぐ');
 
-//Rollbar::debug('debug 1');
-//Rollbar::log(Level::DEBUG, 'debug 2');
-//Rollbar::info('info');
-//Rollbar::notice('notice');
-//Rollbar::warning('warning');
-//
-//try {
-//    throw new Exception('exception message');
-//} catch (Throwable $e) {
-//    Rollbar::error($e);
-//}
-//
-//Rollbar::critical('critical');
-//Rollbar::alert('alert');
-//Rollbar::emergency('emergency');
+try {
+    throw new Exception('えくせぷしょん');
+} catch (Throwable $e) {
+    Rollbar::error($e);
+}
+
+Rollbar::critical('くりてぃかる');
+Rollbar::alert('あらーと');
+Rollbar::emergency('えまーじぇんしー');
 
 echo 'done.', PHP_EOL;
