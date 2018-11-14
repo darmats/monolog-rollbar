@@ -12,7 +12,7 @@ $psrHandler = new PsrHandler(Rollbar::logger());
 $psrHandler->setFormatter(new LineFormatter());
 $logger->pushHandler($psrHandler);
 
-$logger->notice('なう: ' . $now);
+$logger->warning('なう: ' . $now);
 
 echo '<pre>';
 echo $now, PHP_EOL;
