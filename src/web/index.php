@@ -2,7 +2,6 @@
 
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\PsrHandler;
-use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Rollbar\Rollbar;
 
@@ -12,7 +11,6 @@ $logger = new Logger($env);
 $psrHandler = new PsrHandler(Rollbar::logger());
 $psrHandler->setFormatter(new LineFormatter());
 $logger->pushHandler($psrHandler);
-$logger->pushHandler(new StreamHandler('php://stdout'));
 
 $logger->notice('なう: ' . $now);
 
